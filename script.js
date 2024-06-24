@@ -31,7 +31,6 @@ const checkUserInput = () => {
 convertBtn.addEventListener("click", checkUserInput);
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    e.preventDefault();
     checkUserInput();
   }
 });
