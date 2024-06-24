@@ -23,14 +23,28 @@ const checkUserInput = () => {
     console.log("Please enter a number greater than or equal to 1.");
   } else if (input > 3999) {
     console.log("Please enter a number less than or equal to 3999.");
+  } else if (input >= 1 && input <= 3999) {
+    romanToInteger(input);
   } else {
-    console.log("conversion possible");
+    console.log("Please enter a valid number");
+  }
+};
+
+const romanToInteger = (input) => {
+  let convertedString = "";
+  for (let num = 0; num < reference.length; num++) {
+    while (input >= reference[num][1]) {
+      input -= reference[num][1];
+      convertedString += reference[num][0];
+      console.log(convertedString);
+    }
   }
 };
 
 convertBtn.addEventListener("click", checkUserInput);
 userInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+    e.preventDefault();
     checkUserInput();
   }
 });
