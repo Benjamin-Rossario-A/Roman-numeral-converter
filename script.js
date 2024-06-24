@@ -20,13 +20,19 @@ const reference = [
 const checkUserInput = () => {
   const input = parseInt(userInput.value);
   if (input <= 0) {
-    console.log("Please enter a number greater than or equal to 1.");
+    result.style.background = "#EE4E4E";
+    result.style.fontSize = "32px";
+    result.innerText = "Please enter a number greater than or equal to 1.";
   } else if (input > 3999) {
-    console.log("Please enter a number less than or equal to 3999.");
+    result.style.background = "#EE4E4E";
+    result.style.fontSize = "32px";
+    result.innerText = "Please enter a number less than or equal to 3999.";
   } else if (input >= 1 && input <= 3999) {
     romanToInteger(input);
   } else {
-    console.log("Please enter a valid number");
+    result.style.background = "#EE4E4E";
+    result.style.fontSize = "32px";
+    result.innerText = "Please enter a valid number";
   }
 };
 
@@ -36,9 +42,11 @@ const romanToInteger = (input) => {
     while (input >= reference[num][1]) {
       input -= reference[num][1];
       convertedString += reference[num][0];
-      console.log(convertedString);
     }
   }
+  result.style.background = "#6FDCE3";
+  result.style.fontSize = "48px";
+  result.innerText = convertedString;
 };
 
 convertBtn.addEventListener("click", checkUserInput);
